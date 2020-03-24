@@ -1,0 +1,581 @@
+<%-include("../include/header")%>
+<!-- banner -->
+<div id="slidey" style="display:none;">
+	<ul>
+		<li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkdr2BGWvMCT5sOWu_QuaYV41RnkHXc4_tV7L-EH16JfVKGfFw" alt=" "><p class='title'>Movies</p><p class='description'> Top Movies </p></li>
+		<li><img src="https://www.industryfreak.com/wp-content/uploads/2019/06/11-Best-Tv-Series-of-all-time.jpg" alt=" "><p class='title'>Television Series </p><p class='description'>Top Television Series </p></li>
+		<li><img src="https://tytheknot.com.au/wp-content/uploads/2015/02/5stars.png" alt=" "><p class='title'>Title </p><p class='description'></p></li>
+		<li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSouQP89AZ_Bu7TJudtJz-8vzIO5IseF9gZ5tyxpfovXZW0bAcm" alt=" "><p class='title'>Home Appliances </p><p class='description'></p></li>
+		<li><img src="https://images.unsplash.com/photo-1533193045359-7855d8ed65f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt=" "><p class='title'>Electronic Gadgets</p><p class='description'></p></li>
+		</ul>
+</div>
+<script src="js/jquery.slidey.js"></script>
+<script src="js/jquery.dotdotdot.min.js"></script>
+<script type="text/javascript">
+	$("#slidey").slidey({
+		interval: 8000,
+		listCount: 5,
+		autoplay: false,
+		showList: true
+	});
+	$(".slidey-list-description").dotdotdot();
+</script>
+<!-- //banner -->
+<!-- banner-bottom -->
+
+<!-- //banner-bottom -->
+<div class="general_social_icons">
+	<nav class="social">
+		<ul>
+			<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+			<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+			<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
+			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
+		</ul>
+	</nav>
+</div>
+<!-- general -->
+<div class="general">
+	<h4 class="latest-text w3_latest_text">Featured Movies</h4>
+	<div class="container">
+		<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+			<ul id="myTab" class="nav nav-tabs" role="tablist">
+				<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Top viewed</a></li>
+				<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">Top Rating</a></li>
+				<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">Recently Added</a></li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+
+					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+						<% for(let movie of popularmovies){ %>
+						<div class="col-md-2 w3l-movie-gride-agile" style="display:block;width;100;height:150;">
+							<a href="/single-movie?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img  src="<%= movie.imageurl %>" title="album-name" style="display:block;width:300px;height:200px;" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="/single-movie?id=<%= movie._id %>"><%= movie.name %></a></h6>
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<div class="block-stars">
+										<ul class="w3l-ratings" style="display:block;width:135px;">
+																		<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																<% } %>
+																<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																<li> <i class="fa fa-star-o" aria-hidden="true"></i></li>
+																	<% } %>
+																	</ul>
+																</div>
+
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<% } %>
+					</div>
+
+
+
+
+
+
+
+				<div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
+					<% for(let movie of topratedmovies){ %>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="/single-movie?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img src="<%= movie.imageurl %>" style="display:block;width:300px;height:200px;"title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="/single-movie?id=<%= movie._id %>"><%= movie.name %></a></h6>
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p></p>
+									<div class="block-stars">
+
+										<ul class="w3l-ratings" style="display:block;width:135px;">
+															 <%= movie.rating.valueOf(); %> 	<br>		<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																<% } %>
+																<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																<li> <i class="fa fa-star-o" aria-hidden="true"> </i></li>
+																	<% } %>
+																	</ul>
+																</div>
+
+									<div class="clearfix"></div>
+								</div>
+							</div>
+
+							<div class="ribben">
+								<p>Top</p>
+							</div>
+						</div>
+						<% } %>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="imdb" aria-labelledby="imdb-tab">
+						<% for(let movie of latestmovies){ %>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="/single-movie?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img src="<%=movie.imageurl %>" style="display:block;width:300px;height:200px;" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="/single-movie?id=<%= movie._id %>"><%=movie.name %></a></h6>
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p></p>
+									<div class="block-stars">
+										<ul class="w3l-ratings" style="display:block;width:135px;">
+																		<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																<% } %>
+																<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																<li> <i class="fa fa-star-o" aria-hidden="true"></i></li>
+																	<% } %>
+																	</ul>
+																</div>
+
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<% } %>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- //general -->
+
+
+
+
+
+
+			<div class="general">
+				<h4 class="latest-text w3_latest_text">Featured TV Series</h4>
+				<div class="container">
+					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+						<ul id="myTab" class="nav nav-tabs" role="tablist">
+							<li role="presentation"><a href="#tvprofile" role="tab" id="tvprofile-tab" data-toggle="tab" aria-controls="tvprofile" aria-expanded="false">Top viewed</a></li>
+							<li role="presentation"><a href="#tvrating" id="tvrating-tab" role="tab" data-toggle="tab" aria-controls="tvrating" aria-expanded="true">Top Rating</a></li>
+							<li role="presentation"><a href="#tvimdb" role="tab" id="tvimdb-tab" data-toggle="tab" aria-controls="tvimdb" aria-expanded="false">Recently Added</a></li>
+						</ul>
+						<div id="myTabContent" class="tab-content">
+
+								<div role="tabpanel" class="tab-pane fade" id="tvprofile" aria-labelledby="tvprofile-tab">
+									<% for(let movie of populartvs){ %>
+									<div class="col-md-2 w3l-movie-gride-agile">
+										<a href="/single-tv?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img src="<%= movie.imageurl %>" style="display:block;width:300px;height:200px;" title="album-name" class="img-responsive" alt=" " />
+											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+										</a>
+										<div class="mid-1 agileits_w3layouts_mid_1_home">
+											<div class="w3l-movie-text">
+												<h6><a href="/single-tv?id=<%= movie._id %>"><%= movie.name %></a></h6>
+											</div>
+											<div class="mid-2 agile_mid_2_home">
+												<div class="block-stars">
+													<ul class="w3l-ratings" style="display:block;width:135px;">
+																					<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																			<% } %>
+																			<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																			<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																			<li> <i class="fa fa-star-o" aria-hidden="true"></i></li>
+																				<% } %>
+																				</ul>
+																			</div>
+
+												<div class="clearfix"></div>
+											</div>
+										</div>
+										<div class="ribben">
+											<p>NEW</p>
+										</div>
+									</div>
+									<% } %>
+								</div>
+
+
+
+
+
+
+
+							<div role="tabpanel" class="tab-pane fade" id="tvrating" aria-labelledby="tvrating-tab">
+								<% for(let movie of topratedtvs){ %>
+									<div class="col-md-2 w3l-movie-gride-agile">
+										<a href="/single-tv?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img src="<%= movie.imageurl %>" style="display:block;width:300px;height:200px;" title="album-name" class="img-responsive" alt=" " />
+											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+										</a>
+										<div class="mid-1 agileits_w3layouts_mid_1_home">
+											<div class="w3l-movie-text">
+												<h6><a href="/single-tv?id=<%= movie._id %>"><%= movie.name %></a></h6>
+											</div>
+											<div class="mid-2 agile_mid_2_home">
+												<p></p>
+												<div class="block-stars">
+
+													<ul class="w3l-ratings" style="display:block;width:135px;">
+																		 <%= movie.rating.valueOf(); %> 	<br>		<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																			<% } %>
+																			<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																			<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																			<li> <i class="fa fa-star-o" aria-hidden="true"> </i></li>
+																				<% } %>
+																				</ul>
+																			</div>
+
+												<div class="clearfix"></div>
+											</div>
+										</div>
+
+										<div class="ribben">
+											<p>Top</p>
+										</div>
+									</div>
+									<% } %>
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="tvimdb" aria-labelledby="tvimdb-tab">
+									<% for(let movie of latesttvs){ %>
+									<div class="col-md-2 w3l-movie-gride-agile">
+										<a href="/single-tv?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img src="<%=movie.imageurl %>" style="display:block;width:300px;height:200px;" title="album-name" class="img-responsive" alt=" " />
+											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+										</a>
+										<div class="mid-1 agileits_w3layouts_mid_1_home">
+											<div class="w3l-movie-text">
+												<h6><a href="/single-tv?id=<%= movie._id %>"><%=movie.name %></a></h6>
+											</div>
+											<div class="mid-2 agile_mid_2_home">
+												<p></p>
+												<div class="block-stars">
+													<ul class="w3l-ratings" style="display:block;width:135px;">
+																					<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																			<% } %>
+																			<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																			<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																			<li> <i class="fa fa-star-o" aria-hidden="true"></i></li>
+																				<% } %>
+																				</ul>
+																			</div>
+
+												<div class="clearfix"></div>
+											</div>
+										</div>
+										<div class="ribben">
+											<p>NEW</p>
+										</div>
+									</div>
+									<% } %>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								<div class="general">
+									<h4 class="latest-text w3_latest_text">Featured Devices</h4>
+									<div class="container">
+										<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+											<ul id="myTab" class="nav nav-tabs" role="tablist">
+												<li role="presentation"><a href="#deviceprofile" role="tab" id="deviceprofile-tab" data-toggle="tab" aria-controls="tvprofile" aria-expanded="false">Top viewed</a></li>
+												<li role="presentation"><a href="#devicerating" id="devicerating-tab" role="tab" data-toggle="tab" aria-controls="tvrating" aria-expanded="true">Top Rating</a></li>
+												<li role="presentation"><a href="#deviceimdb" role="tab" id="deviceimdb-tab" data-toggle="tab" aria-controls="tvimdb" aria-expanded="false">Recently Added</a></li>
+											</ul>
+											<div id="myTabContent" class="tab-content">
+
+													<div role="tabpanel" class="tab-pane fade" id="deviceprofile" aria-labelledby="deviceprofile-tab">
+														<% for(let movie of populardevices){ %>
+														<div class="col-md-2 w3l-movie-gride-agile">
+															<a href="/single-device?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img src="<%= movie.imageurl %>" style="display:block;width:300px;height:200px;" title="album-name" class="img-responsive" alt=" " />
+																<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+															</a>
+															<div class="mid-1 agileits_w3layouts_mid_1_home">
+																<div class="w3l-movie-text">
+																	<h6><a href="/single-device?id=<%= movie._id %>"><%= movie.name %></a></h6>
+																</div>
+																<div class="mid-2 agile_mid_2_home">
+
+																	<div class="block-stars">
+																		<ul class="w3l-ratings" style="display:block;width:135px;">
+																										<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																								<% } %>
+																								<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																								<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																								<li> <i class="fa fa-star-o" aria-hidden="true"></i></li>
+																									<% } %>
+																									</ul>
+																								</div>
+
+																	<div class="clearfix"></div>
+																</div>
+															</div>
+															<div class="ribben">
+																<p>NEW</p>
+															</div>
+														</div>
+														<% } %>
+													</div>
+
+
+
+
+
+
+
+												<div role="tabpanel" class="tab-pane fade" id="devicerating" aria-labelledby="devicerating-tab">
+													<% for(let movie of toprateddevices){ %>
+														<div class="col-md-2 w3l-movie-gride-agile">
+															<a href="/single-device?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img src="<%= movie.imageurl %>" style="display:block;width:300px;height:200px;" title="album-name" class="img-responsive" alt=" " />
+																<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+															</a>
+															<div class="mid-1 agileits_w3layouts_mid_1_home">
+																<div class="w3l-movie-text">
+																	<h6><a href="/single-device?id=<%= movie._id %>"><%= movie.name %></a></h6>
+																</div>
+																<div class="mid-2 agile_mid_2_home">
+																	<p></p>
+																	<div class="block-stars">
+
+																		<ul class="w3l-ratings" style="display:block;width:135px;">
+																							 <%= movie.rating.valueOf(); %> 	<br>		<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																								<% } %>
+																								<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																								<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																								<li> <i class="fa fa-star-o" aria-hidden="true"> </i></li>
+																									<% } %>
+																									</ul>
+																								</div>
+
+																	<div class="clearfix"></div>
+																</div>
+															</div>
+
+															<div class="ribben">
+																<p>Top</p>
+															</div>
+														</div>
+														<% } %>
+													</div>
+													<div role="tabpanel" class="tab-pane fade" id="deviceimdb" aria-labelledby="deviceimdb-tab">
+														<% for(let movie of latestdevices){ %>
+														<div class="col-md-2 w3l-movie-gride-agile">
+															<a href="/single-device?id=<%= movie._id %>" class="hvr-shutter-out-horizontal"><img src="<%=movie.imageurl %>" style="display:block;width:300px;height:200px;" title="album-name" class="img-responsive" alt=" " />
+																<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+															</a>
+															<div class="mid-1 agileits_w3layouts_mid_1_home">
+																<div class="w3l-movie-text">
+																	<h6><a href="/single-device?id=<%= movie._id %>"><%=movie.name %></a></h6>
+																</div>
+																<div class="mid-2 agile_mid_2_home">
+																	<p></p>
+																	<div class="block-stars">
+																		<ul class="w3l-ratings" style="display:block;width:135px;">
+																										<% for(let i=0;i<Math.floor(movie.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																								<% } %>
+																								<% if(movie.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																								<% for(let i=Math.ceil(movie.rating/2); i<5; i++){ %>
+																								<li> <i class="fa fa-star-o" aria-hidden="true"></i></li>
+																									<% } %>
+																									</ul>
+																								</div>
+
+																	<div class="clearfix"></div>
+																</div>
+															</div>
+															<div class="ribben">
+																<p>NEW</p>
+															</div>
+														</div>
+														<% } %>
+														</div>
+														<div class="clearfix"> </div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+
+
+
+
+
+
+
+
+	<!-- Latest-tv-series -->
+	<div class="Latest-tv-series">
+		<h4 class="latest-text w3_latest_text w3_home_popular">Most Popular Movies</h4>
+		<div class="container">
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<div class="agile_tv_series_grid">
+								<div class="col-md-6 agile_tv_series_grid_left">
+									<div class="w3ls_market_video_grid1">
+										<img src="images/h1-1.jpg" alt=" " class="img-responsive" />
+										<a class="w3_play_icon" href="#small-dialog">
+											<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+										</a>
+									</div>
+								</div>
+								<div class="col-md-6 agile_tv_series_grid_right">
+									<p class="fexi_header">the conjuring 2</p>
+									<p class="fexi_header_para"><span class="conjuring_w3">Story Line<label>:</label></span> 720p,Bluray HD Free Movie Downloads, Watch Free Movies Online with high speed Free Movie Streaming | MyDownloadTube Lorraine and Ed Warren go to north London to help a single...</p>
+									<p class="fexi_header_para"><span>Date of Release<label>:</label></span> Jun 10, 2016 </p>
+									<p class="fexi_header_para">
+										<span>Genres<label>:</label> </span>
+										<a href="genres.html">Drama</a> |
+										<a href="genres.html">Adventure</a> |
+										<a href="genres.html">Family</a>
+									</p>
+									<p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+									</p>
+								</div>
+								<div class="clearfix"> </div>
+								<div class="agileinfo_flexislider_grids">
+									<div class="col-md-2 w3l-movie-gride-agile">
+											<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+										</a>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="agile_tv_series_grid">
+								<div class="col-md-6 agile_tv_series_grid_left">
+									<div class="w3ls_market_video_grid1">
+										<img src="images/h2-1.jpg" alt=" " class="img-responsive" />
+										<a class="w3_play_icon1" href="#small-dialog1">
+											<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+										</a>
+									</div>
+								</div>
+								<div class="col-md-6 agile_tv_series_grid_right">
+									<p class="fexi_header">Don't Breathe</p>
+									<p class="fexi_header_para"><span class="conjuring_w3">Story Line<label>:</label></span> Hoping to walk away with a massive fortune, a trio of thieves break into the house of a blind man who isn't as helpless as he seems.</p>
+									<p class="fexi_header_para"><span>Date of Release<label>:</label></span> 25 August 2016 </p>
+									<p class="fexi_header_para">
+										<span>Genres<label>:</label> </span>
+										<a>Thriller</a> |
+										<a>Horror</a>
+									</p>
+									<p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+										<a><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
+										<a><i class="fa fa-star-o" aria-hidden="true"></i></a>
+									</p>
+								</div>
+								<div class="clearfix"> </div>
+						<li>
+							<div class="agile_tv_series_grid">
+								<div class="col-md-6 agile_tv_series_grid_left">
+									<div class="w3ls_market_video_grid1">
+										<img src="images/h3-1.jpg" alt=" " class="img-responsive" />
+										<a class="w3_play_icon2" href="#small-dialog2">
+											<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+										</a>
+									</div>
+								</div>
+								<div class="col-md-6 agile_tv_series_grid_right">
+									<p class="fexi_header">civil war captain America</p>
+									<p class="fexi_header_para"><span class="conjuring_w3">Story Line<label>:</label></span> After the Avengers leaves some&nbsp;collateral damage, political pressure mounts to install a system of accountability.&nbsp;The new status quo deeply divides ...</p>
+									<p class="fexi_header_para"><span>Date of Release<label>:</label></span> May 06, 2016 </p>
+									<p class="fexi_header_para">
+										<span>Genres<label>:</label> </span>
+										<a href="genres.html">Action</a> |
+										<a href="genres.html">Adventure</a>
+									</p>
+									<p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+									</p>
+								</div>
+								<div class="clearfix"> </div>
+
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+
+				</div>
+			<!-- flexSlider -->
+			<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+			<script defer src="js/jquery.flexslider.js"></script>
+			<script type="text/javascript">
+				$(window).load(function(){
+					$('.flexslider').flexslider({
+						animation: "slide",
+						start: function(slider){
+							$('body').removeClass('loading');
+						}
+					});
+				});
+			</script>
+			<!-- //flexSlider -->
+		</div>
+	</div>
+	<!-- pop-up-box -->
+	<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<!--//pop-up-box -->
+	<div id="small-dialog" class="mfp-hide">
+		<iframe src="https://www.youtube.com/embed/KyA9AtUOqRM"></iframe>
+	</div>
+	<div id="small-dialog1" class="mfp-hide">
+		<iframe src="https://www.youtube.com/embed/76yBTNDB6vU"></iframe>
+	</div>
+	<div id="small-dialog2" class="mfp-hide">
+		<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
+	</div>
+	<script>
+		$(document).ready(function() {
+			$('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+
+		});
+	</script>
+	<!-- //Latest-tv-series -->
+	<%-include("../include/footer")%>

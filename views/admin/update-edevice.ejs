@@ -1,0 +1,55 @@
+<%-include("../include/header") %>
+<div class="contact-agile">
+
+  <% if (edevices.length > 0) { %>
+    <% for (let device of edevices) { %>
+
+
+  <div class="faq">
+    <h4 class="latest-text w3_latest_text">Update Device </h4>
+    <div class="container">
+	<div class="clearfix"></div>
+<form action="/update-edevice" method="post">
+  <input type="hidden" name="id" value="<%= _id %>">
+  <select class="" name="device_type" value="<%= device.device_type %>" required="">
+    <option value="" disabled selected>Select Device</option>
+  <option value="mobile"> Mobile </option>
+  <option value="laptop">    Laptop </option>
+  <option value="television"> Television </option>
+  <option value="headphone"> Headphone </option>
+  <option value="speaker">   Speaker </option>
+  <option value="ac"> Air Conditioner </option>
+  <option value="trimmer"> Trimmer </option> <b
+  <option value="oven">  Microwave Oven </option>
+  <option value="cooler"> Water Cooler </option>
+  <option value="watch"> Wrist Watch </option>
+  <option value="fridge">  Refrigerator </option>
+  <option value="washing_machine">  Washing Machine</option>
+  <option value="camera">   camera </option>
+
+  </select> &emsp;
+
+  <input type="text" name="trailer" placeholder="Trailer URL" value="<%= device.trailer%>">required=""> <br>
+  <input type="text" name="brand_name" placeholder="Brand Name" value="<%= device.brand_name%>" required=""> <br>
+  <input type="text" name="name" placeholder="Device Name" value="<%=device.name%>" required=""> &emsp;
+  <input type="text" name="model" placeholder="Model" value="<%=device.model %>" > <br>
+      <input type="text" name="imageurl" placeholder="Image URL" value="<%=device.imageurl%>" required=""> &emsp;
+      <input type="text"  name="description" placeholder="Product Description" value="<%=device.description%>"required=""><br>
+      <input type="number" name="rating" placeholder="Rating" required=""><%=device.rating %> &emsp;
+      <input type="number" name="year" placeholder="Year" required=""> <%=device.year %> &emsp;
+      <input type="number" name="price" placeholder="Price (in Rupees)" required=""><%=device.price %> <br>
+<br>
+
+
+
+
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <input type="submit" value="Update Product">
+
+
+  <% } } %>
+</form>
+</div>
+</div>
+</div>
+<%-include("../include/footer") %>

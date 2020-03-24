@@ -1,0 +1,60 @@
+<%-include("../include/header") %>
+<div class="contact-agile">
+
+  <% if (tvs.length > 0) { %>
+    <% for (let tv of tvs) { %>
+
+  <div class="faq">
+    <h4 class="latest-text w3_latest_text">Update TV Series </h4>
+    <div class="container">
+	<div class="clearfix"></div>
+<form action="/update-tv-series" method="post">
+  <input type="text" name="name" value="<%=tv.name%>" placeholder="NAME" required=""> <br>
+  <input type="hidden" name="id" value="<%= _id %>">
+
+  <input type="text" name="trailer" placeholder="Trailer URL"  value=" <%=tv.trailer %>" required=""> <br>
+    <input type="text" name="imageurl" value="<%=tv.imageurl%>" placeholder="Image URL" required=""> <br>
+      <input type="text" name="description" placeholder="Movie Description"  value=" <%=tv.description%>" required=""> <br>
+      <input type="number" name="rating" placeholder="Rating" required=""> <br> <br>
+      <input type="number" name="start_year" placeholder="Start Year" value=" <%=tv.start_year%>" required=""> <%=tv.start_year%> <br><br>
+      <input type="number" name="end_year" placeholder="End Year" ><%=tv.end_year%> <br> <br>
+      <input type="number" name="seasons" placeholder="Number Of Seasons" required=""> <%=tv.seasons%><br> <br>
+      <input type="text" name="story" placeholder="Storyline" required="" value='<%=tv.story%>'><br>
+<br>
+    <h3>Select Genre</h3><br>
+    <input type="checkbox" name="genre0" value="action">      Action </input> <br>
+    <input type="checkbox" name="genre1" value="adventure">      Adventure </input> <br>
+    <input type="checkbox" name="genre2" value="comedy">      Comedy </input> <br>
+    <input type="checkbox" name="genre3" value="horror">      Horror </input> <br>
+    <input type="checkbox" name="genre4" value="thriller">      Thriller </input> <br>
+    <input type="checkbox" name="genre5" value="mystery">      Mystery </input> <br>
+    <input type="checkbox" name="genre6" value="sci-fi">      Sci-Fi </input> <br>
+    <input type="checkbox" name="genre7" value="romance">      Romance </input> <br>
+    <input type="checkbox" name="genre8" value="drama">      Drama </input> <br>
+    <input type="checkbox" name="genre9" value="crime">      Crime </input> <br>
+    <input type="checkbox" name="genre10" value="animation">      Animation </input> <br>
+    <input type="checkbox" name="genre11" value="fantasy">      Fantasy </input> <br>
+    <input type="checkbox" name="genre12" value="superhero">      Superhero </input> <br>
+    <input type="checkbox" name="genre13" value="biography">  Biography </input> <br>
+    <input type="checkbox" name="genre14" value="sports">  Sports </input> <br>
+    <input type="checkbox" name="genre15" value="documentary">  Documentary </input> <br>
+    <input type="checkbox" name="genre16" value="history">  History </input> <br>
+    <input type="checkbox" name="genre17" value="musical">  Musical </input> <br>
+    <input type="checkbox" name="genre18" value="psychological"> Psychological </input> <br>
+
+
+     <br><br>
+
+
+
+
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <input type="submit" value="ADD TV Series">
+
+
+  <% } } %>
+</form>
+</div>
+</div>
+</div>
+<%-include("../include/footer") %>

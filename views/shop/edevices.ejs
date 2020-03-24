@@ -1,0 +1,104 @@
+<%-include("../include/headerdevices")%>
+<!-- tables -->
+<link rel="stylesheet" type="text/css" href="list-css/table-style.css" />
+<link rel="stylesheet" type="text/css" href="list-css/basictable.css" />
+<script type="text/javascript" src="list-js/jquery.basictable.min.js"></script>
+<!-- //tables -->
+<div class="general_social_icons">
+	<nav class="social">
+		<ul>
+			<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+			<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+			<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
+			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
+		</ul>
+  </nav>
+</div>
+<!-- faq-banner -->
+	<div class="faq">
+		<h4 class="latest-text w3_faq_latest_text w3_latest_text">Devices List</h4>
+			<div class="container">
+				<div class="agileits-news-top">
+					<ol class="breadcrumb">
+					  <li><a href="index.html">Home</a></li>
+					 <li class="active">List</li>
+					</ol>
+				</div>
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+						<div id="myTabContent" class="tab-content">
+							<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+								<div class="agile-news-table">
+									<div class="w3ls-news-result">
+										<h4>Search Results : <b><%= totalItems %></b> <br>Device Type <b><%=device_type %></b></h4> <br>
+									</div>
+									<table id="table-breakpoint">
+										<thead align="center">
+										  <tr>
+											<th>No.</th>
+											<th>Device</th>
+											<th> Name</th>
+											<th>Product Description</th>
+											<th>Price(<i class="fa fa-inr"></i>)</th>
+											<th width="150">Rating     </th>
+												<% if (isAdmin) { %>
+													<th>Admin</th>
+
+											 <% } %>
+
+											</tr>
+										</thead>
+										<tbody>
+
+											<%- include('../include/pagination-devices.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %>
+
+
+											<% if (edevices.length > 0) { %>
+												<% let i=1; %>
+												<% for (let device of edevices) { %>
+
+										  <tr>
+											<td><%= i %></td>
+											<td class="w3-list-img">
+												<a href="/single-device?id=<%= device._id %>">
+													<img src="<%= device.imageurl %>" height="150" width="100"alt="" />
+												 </a>
+											 </td>
+											 <td class="w3-list-info"><a href="/single-device?id=<%= device._id %>"><%= device.name %></a></td>
+											 <td><%= device.description %></td>
+											<td> <%= device.price %></td>
+
+
+											<td> <div class="block-stars">
+												<ul class="w3l-ratings">
+																				<% for(let i=0;i<Math.floor(device.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																		<% } %>
+																		<% if(device.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																		<% for(let i=Math.ceil(device.rating/2); i<5; i++){ %>
+																		<li> <i class="fa fa-star-o" aria-hidden="true"></i></li>
+																			<% } %>
+																			</ul>
+																		</div>
+											  <%= device.rating.valueOf(); %> /10 <br>
+											(<%= device.quantity %>) </td>
+											<% if (isAdmin) { %>
+												<td><a href="/update-edevice?id=<%= device._id %>">Update</a> <br> <br>
+														<a href="/delete-edevice?id=<%= device._id %>">Delete</a></td>
+
+											<% } %>
+
+											</tr>
+											 <% i=i+1;} %>
+											 <% } else { %>
+                        <h1>No Devices Found !</h1>
+                        <% } %>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+	</div>
+<!-- //faq-banner -->
+
+<%-include("../include/footer")%>

@@ -1,0 +1,62 @@
+<%-include("../include/header") %>
+<div class="contact-agile">
+  <div class="faq">
+    <h4 class="latest-text w3_latest_text">Add Movie </h4>
+    <div class="container">
+	<div class="clearfix"></div>
+<form action="/add-movie" method="post">
+
+  <input type="hidden" name="quantity" value="1">
+  <input type="text" name="name" placeholder="NAME" required=""> <br>
+
+  <!-- <select name="category" required="">
+  <option value="">Category</option>
+  <option value="movie">MOVIE</option>
+  <option value="tv-series">TV SERIES</option>
+  <option value="edevice">ELECTRONIC DEVICE</option>
+  </select>
+
+    <br> <br> -->
+    <input type="text" name="trailer" placeholder="Trailer URL" required=""> <br>
+      <input type="text" name="imageurl" placeholder="Image URL" required=""> <br>
+      <textarea  name="description" placeholder="Movie Description" required=""></textarea> <br>
+      <input type="number" name="rating" placeholder="Rating" required=""> <br> <br>
+      <input type="date" name="year" placeholder="Release Date" required=""> <br>
+<br>
+      <input type="text" name="story" placeholder="Storyline"> <br> <br>
+    <h3>Select Genre</h3>
+    <input type="checkbox" name="genre0" value="Action">      Action </input> <br>
+    <input type="checkbox" name="genre1" value="Adventure">      Adventure </input> <br>
+    <input type="checkbox" name="genre2" value="Comedy">      Comedy </input> <br>
+    <input type="checkbox" name="genre3" value="Horror">      Horror </input> <br>
+    <input type="checkbox" name="genre4" value="Thriller">      Thriller </input> <br>
+    <input type="checkbox" name="genre5" value="Mystery">      Mystery </input> <br>
+    <input type="checkbox" name="genre6" value="Sci-fi">      Sci-Fi </input> <br>
+    <input type="checkbox" name="genre7" value="Romance">      Romance </input> <br>
+    <input type="checkbox" name="genre8" value="Drama">      Drama </input> <br>
+    <input type="checkbox" name="genre9" value="Crime">      Crime </input> <br>
+    <input type="checkbox" name="genre10" value="Animation">      Animation </input> <br>
+    <input type="checkbox" name="genre11" value="Fantasy">      Fantasy </input> <br>
+    <input type="checkbox" name="genre12" value="Superhero">      Superhero </input> <br>
+    <input type="checkbox" name="genre13" value="Biography">  Biography </input> <br>
+    <input type="checkbox" name="genre14" value="Sports">  Sports </input> <br>
+    <input type="checkbox" name="genre15" value="Documentary">  Documentary </input> <br>
+    <input type="checkbox" name="genre16" value="History">  History </input> <br>
+    <input type="checkbox" name="genre17" value="Musical">  Musical </input> <br>
+    <input type="checkbox" name="genre18" value="Psychological"> Psychological </input> <br>
+
+
+     <br>
+
+
+
+
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <input type="submit" value="ADD MOVIE">
+
+
+</form>
+</div>
+</div>
+</div>
+<%-include("../include/footer") %>

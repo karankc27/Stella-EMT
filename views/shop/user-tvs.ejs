@@ -1,0 +1,105 @@
+<%- include('../include/header') %>
+
+<link rel="stylesheet" type="text/css" href="list-css/table-style.css" />
+<link rel="stylesheet" type="text/css" href="list-css/basictable.css" />
+<script type="text/javascript" src="list-js/jquery.basictable.min.js"></script>
+<!-- //tables -->
+<div class="general_social_icons">
+	<nav class="social">
+		<ul>
+			<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+			<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+			<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
+			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
+		</ul>
+  </nav>
+</div>
+<!-- faq-banner -->
+	<div class="faq">
+		<h4 class="latest-text w3_faq_latest_text w3_latest_text">Your Ratings(Tv Series)</h4>
+			<div class="container">
+				<div class="agileits-news-top">
+					<ol class="breadcrumb">
+					  <li><a href="index.html">Home</a></li>
+					  <li class="active">List</li>
+					</ol>
+				</div>
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+						<div id="myTabContent" class="tab-content">
+							<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+								<div class="agile-news-table">
+									<div class="w3ls-news-result">
+										<h4>Search Results : <b><%= tvs.length %></b> <br></h4> <br>
+									</div>
+									<table id="table-breakpoint">
+										<thead align="center">
+										  <tr>
+											<th>No.</th>
+											<th>Series</th>
+											<th> Name</th>
+											<th> Description</th>
+											<th>Year</th>
+											<th>Genre</th>
+											<th width="150">Rating     </th>
+												<% if (isAuthenticated) { %>
+													<th>Your Rating</th>
+											<% } %>
+
+										  </tr>
+										</thead>
+										<tbody>
+
+											<% if (tvs.length > 0) { %>
+												<% let i=1; %>
+												<% tvs.forEach(tv => { %>
+
+										  <tr>
+											<td><%= i %></td>
+											<td class="w3-list-img">
+												<a href="/single-tv?id=<%= tv.tvId._id %>">
+													<img src="<%= tv.tvId.imageurl %>" height="150" width="100"alt="" />
+												 </a>
+											 </td>
+											 <td class="w3-list-info"><a href="/single-tv?id=<%= tv.tvId._id %>"><%= tv.tvId.name %></a></td>
+											 <td><%= tv.tvId.description %></td>
+											<td><%= tv.tvId.start_year%> - <%= tv.tvId.end_year %></td>
+												<td class="w3-list-info">
+
+											</td>
+
+
+											<td> <div class="block-stars">
+												<ul class="w3l-ratings">
+																				<% for(let i=0;i<Math.floor(tv.tvId.rating/2);i++){ %><li><i class="fa fa-star" aria-hidden="true"></i></li>
+																		<% } %>
+																		<% if(tv.tvId.rating%2 != 0){ %> <li> <i class="fa fa-star-half-o" aria-hidden="true"></i></li> <%  } %>
+																		<% for(let i=Math.ceil(tv.tvId.rating/2); i<5; i++){ %>
+																		<li> <i class="fa fa-star-o" aria-hidden="true"></i></li>
+																			<% } %>
+																			</ul>
+																		</div>
+											<br>   <%= tv.tvId.rating.valueOf(); %> /10
+
+										</td>
+
+											<% if (isAuthenticated) { %>
+												<td><%= tv.tvquantity %></td>
+
+											<% } %>
+
+											</tr>
+											 <% i=i+1;}) %>
+											 <% } else { %>
+                        <h1>No TV Shows Found !</h1>
+                        <% } %>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+	</div>
+
+
+          <%- include('../include/footer') %>

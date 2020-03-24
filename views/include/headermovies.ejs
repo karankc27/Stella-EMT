@@ -1,0 +1,599 @@
+<html lang="en">
+<head>
+	<title>Stella | Home : Movies</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- //for-mobile-apps -->
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css"> -->
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/contactstyle.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/faqstyle.css" type="text/css" media="all" />
+		<link href="css/single.css" rel='stylesheet' type='text/css' />
+		<link href="css/medile.css" rel='stylesheet' type='text/css' />
+		<!-- banner-slider -->
+		<link href="css/jquery.slidey.min.css" rel="stylesheet">
+		<!-- //banner-slider -->
+		<!-- pop-up -->
+		<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- //pop-up -->
+		<!-- font-awesome icons -->
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<!-- //font-awesome icons -->
+		<!-- js -->
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<!-- //js -->
+		<!-- banner-bottom-plugin -->
+		<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+		<script src="js/owl.carousel.js"></script>
+
+
+
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$("#owl-demo").owlCarousel({
+
+					autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+					items : 5,
+					itemsDesktop : [640,4],
+					itemsDesktopSmall : [414,3]
+
+				});
+
+			});
+		</script>
+		<!-- //banner-bottom-plugin -->
+		<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+		<!-- start-smoth-scrolling -->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		<!-- start-smoth-scrolling -->
+	</head>
+
+	<body>
+		<!-- header -->
+		<div class="header">
+			<div class="container">
+				<div class="w3layouts_logo">
+					<a href="/"><a href="/"><img style="display:block;width:180px;height:90px;" src="images/logo.png" alt=""></a></a>
+				</div>
+				<div class="w3_search">
+					<input type="text" onkeyup="search()"   id="search" name="Search" placeholder="Search Movies Here  OR  Speak in the mic-->" autocomplete="off">
+					<button id="start-record-btn" onclick="start()" name="button" class="fa fa-microphone" style="height:35;"></button>
+					<button id="pause-record-btn" name="button" class="fa fa-microphone-slash" style="height:35;" ></button>
+
+					<meta charset="utf-8">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge">
+					<title>Voice Controlled Notes App</title>
+					<meta name="description" content="">
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+
+					<!-- <link rel="stylesheet" href="styles.css"> -->
+
+			<body>
+					<div class="container">
+
+
+							<div class="app"><br><br>
+									<p id="recording-instructions">Press the <strong>Recording</strong> button & allow access. </p>
+							</div><div id="showres" class="autocomplete" style="width:300px;">
+
+							          </div>
+					</div>
+
+
+		</div>
+		<% if(errorMessage) { %>
+		<div><%=errorMessage%></div>
+		<% } %>
+		<div class="w3l_sign_in_register">
+			<ul>
+				<!-- <li><i class="fa fa-phone" aria-hidden="true"></i> (+91)9926523723</li> -->
+				<% if (isAuthenticated!= true) { %>
+					<li><a href="#" data-toggle="modal" data-target="#myModal">Login</a>
+						<% } %>
+
+
+							<% if (isAuthenticated) { %>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span><b class="caret"></b></a>
+							<ul class="dropdown-menu multi-column columns-3">
+								<li>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+
+												<h4> <b><%= name %></b></h4>
+												<h4> <b><%= email %></b></h4> <br><li><a href="/user-movies">Your Movies</a></li>
+											<li><a href="/user-tvs">Your Tv Shows</a></li>
+											<li><a href="/user-devices">Your Devices</a></li>
+											<li><a href="/logout">LogOut<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+
+
+										</ul>
+									</div>
+									<div class="clearfix"></div>
+								</li>
+							</ul>
+						</li>
+						<% } %>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!-- //header -->
+	<!-- bootstrap-pop-up -->
+	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					Sign In & Sign Up
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+				<section>
+					<div class="modal-body">
+						<div class="w3_login_module">
+							<div class="module form-module">
+								<div class="toggle"><i class="fa fa-times fa-pencil"></i>
+									<div class="tooltip">SignUp</div>
+								</div>
+								<div class="form">
+									<h3>Login to your account</h3>
+									<form action="/login" method="post">
+										<input type="hidden" name="_csrf" value="<%= csrfToken%>">
+										<input type="text" name="email" placeholder="Email Id" required="">
+										<input type="password" name="password" placeholder="Password" required="">
+										<input type="submit" value="Login">
+									</form>
+								</div>
+								<div class="form">
+									<h3>Create an account</h3>
+									<form action="/signup" method="post">
+											<input type="hidden" name="_csrf" value="<%= csrfToken%>">
+										<input type="text" name="username" placeholder="Name" required="">
+										<input type="password" name="password" placeholder="Password" required="">
+										<input type="email" name="email" placeholder="Email Address" required="">
+										<input type="text" name="phone" placeholder="Phone Number" required="">
+										<input type="submit" value="Register">
+									</form>
+								</div>
+								<div class="modal-body">
+									<div class="w3_login_module">
+										<div class="module form-module">
+											<div class="toggle"><i class="fa fa-times fa-pencil"></i>
+
+											 </div>
+							<div class="form">
+								<h3>Password Reset</h3>
+								<form  action="/reset" method="post">
+									<input type="hidden" name="_csrf" value="<%= csrfToken%>">
+									<input type="email" name="email" placeholder="Email Address" required="">
+									<input type="submit" value="Reset Password">
+								</form>
+
+						</div>
+					</div>
+
+					</div>
+				</section>
+			</div>
+		</div>
+
+	</div>
+	<script>
+		$('.toggle').click(function(){
+			// Switches the Icon
+			$(this).children('i').toggleClass('fa-pencil');
+			// Switches the forms
+			$('.form').animate({
+				height: "toggle",
+				'padding-top': 'toggle',
+				'padding-bottom': 'toggle',
+				opacity: "toggle"
+			}, "slow");
+		});
+	</script>
+	<!-- //bootstrap-pop-up -->
+	<!-- nav -->
+	<div class="movies_nav">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav>
+						<ul class="nav navbar-nav">
+							<li><a href="/">Home</a></li>
+							<li class="dropdown" class="active">
+								<a href="/movies" class="dropdown-toggle" data-toggle="dropdown">MOVIES <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="/movies?genre=all"><b>ALL</b></a></li>
+												<li><a href="/movies?genre=Action">Action</a></li>
+												<li><a href="/movies?genre=Biography">Biography</a></li>
+												<li><a href="/movies?genre=Crime">Crime</a></li>
+												<li><a href="/movies?genre=Horror">Horror</a></li>
+												<li><a href="/movies?genre=Romance">Romance</a></li>
+												<li><a href="/movies?genre=Sports">Sports</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="/movies?genre=Adventure">Adventure</a></li>
+												<li><a href="/movies?genre=Comedy">Comedy</a></li>
+												<li><a href="/movies?genre=Documentary">Documentary</a></li>
+												<li><a href="/movies?genre=Fantasy">Fantasy</a></li>
+												<li><a href="/movies?genre=Thriller">Thriller</a></li>
+												<li><a href="/movies?genre=Sci-fi">Sci-Fi</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="/movies?genre=Animation">Animation</a></li>
+												<li><a href="/movies?genre=Drama">Drama</a></li>
+												<li><a href="/movies?genre=History">History</a></li>
+												<li><a href="/movies?genre=Musical">Musical</a></li>
+												<li><a href="/movies?genre=Psychological">Psychological</a></li>
+											</ul>
+										</div>
+										<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="/tvshows" class="dropdown-toggle" data-toggle="dropdown">TV SERIES <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="/tvshows?genre=all"><b>All</b></a></li>
+												<li><a href="/tvshows?genre=action">Action</a></li>
+												<li><a href="/tvshows?genre=biography">Biography</a></li>
+												<li><a href="/tvshows?genre=crime">Crime</a></li>
+												<li><a href="/tvshows?genre=horror">Horror</a></li>
+												<li><a href="/tvshows?genre=romance">Romance</a></li>
+												<li><a href="/tvshows?genre=sports">Sports</a></li>
+												</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="/tvshows?genre=adventure">Adventure</a></li>
+												<li><a href="/tvshows?genre=comedy">Comedy</a></li>
+												<li><a href="/tvshows?genre=documentary">Documentary</a></li>
+												<li><a href="/tvshows?genre=fantasy">Fantasy</a></li>
+												<li><a href="/tvshows?genre=thriller">Thriller</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="/tvshows?genre=animation">Animation</a></li>
+												<li><a href="/tvshows?genre=drama">Drama</a></li>
+												<li><a href="/tvshows?genre=history">History</a></li>
+												<li><a href="/tvshows?genre=musical">Musical</a></li>
+												<li><a href="/tvshows?genre=psychological">Psychological</a></li>
+											</ul>
+										</div>
+										<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="/devices" class="dropdown-toggle" data-toggle="dropdown">ELECTRONIC DEVICES <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="/devices?device_type=all">All</a></li>
+												<li><a href="/devices?device_type=mobile">Mobiles</a></li>
+												<li><a href="/devices?device_type=laptop">Laptops</a></li>
+												<li><a href="/devices?device_type=television">Televisions</a></li>
+												<li><a href="/devices?device_type=headphone">Headphones</a></li>
+												<li><a href="/devices?device_type=speaker">Speakers</a></li>
+												<li><a href="/devices?device_type=ac">Air Conditioners</a></li>
+												<li><a href="/devices?device_type=trimmer">Trimmers</a></li>
+												<li><a href="/devices?device_type=oven">Microwave Ovens</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="/devices?device_type=cooler">Water Coolers</a></li>
+												<li><a href="/devices?device_type=watch">Wrist Watches</a></li>
+												<li><a href="/devices?device_type=fridge">Refrigerators</a></li>
+												<li><a href="/devices?device_type=washing_machine">Washing Machines</a></li>
+												<li><a href="/devices?device_type=camera">Cameras</a></li>
+											</ul>
+										</div>
+
+
+										<div class="clearfix"></div>
+
+									</li>
+								</ul>
+								<li><a href="/about">ABOUT US</a></li>
+
+								<li><a href="/contact">CONTACT US</a></li>
+
+								<% if(isAdmin){ %>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Add Product <b class="caret"></b></a>
+									<ul class="dropdown-menu multi-column columns-3">
+										<li>
+											<div class="col-sm-4">
+												<ul class="multi-column-dropdown">
+													<li><a href="/add-movie">MOVIE</a></li>
+													<li><a href="/add-tv-series">TV SERIES</a></li>
+													<li><a href="/add-edevice">ELECTRONIC DEVICE</a></li>
+												</ul>
+											</div>
+
+											<div class="clearfix"></div>
+
+										</li>
+										<% } %>
+									</ul>
+
+														<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+														<script src="script"></script>
+
+                  <script>
+
+                  function search(){
+                    value=document.getElementById("search").value;
+                    axios.get(`/autocompletemovies?term=${value}`)
+                    .then(data=>{
+                      console.log(data);
+                      document.getElementById("showres").innerHTML=""
+
+                      data.data.map(d=>{
+                        document.getElementById("showres").innerHTML+=`<br><a href="/single-movie?id=${d.id}">${d.label}`
+                      })
+
+                    })
+                    .catch(err=>{
+                      console.log(err);
+                    })
+                  }
+                </script>
+
+								<script>
+										function start(){
+											console.log("In start");
+											try {
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var recognition = new SpeechRecognition();
+}
+catch(e) {
+  console.error(e);
+  $('.no-browser-support').show();
+  $('.app').hide();
+}
+
+
+var noteTextarea = $('#search');
+var instructions = $('#recording-instructions');
+var notesList = $('ul#notes');
+
+var noteContent = '';
+
+// Get all notes from previous sessions and display them.
+var notes = getAllNotes();
+renderNotes(notes);
+
+
+
+/*-----------------------------
+      Voice Recognition
+------------------------------*/
+
+// If false, the recording will stop after a few seconds of silence.
+// When true, the silence period is longer (about 15 seconds),
+// allowing us to keep recording even when the user pauses.
+recognition.continuous = true;
+
+// This block is called every time the Speech APi captures a line.
+recognition.onresult = function(event) {
+
+  // event is a SpeechRecognitionEvent object.
+  // It holds all the lines we have captured so far.
+  // We only need the current one.
+  var current = event.resultIndex;
+
+  // Get a transcript of what was said.
+  var transcript = event.results[current][0].transcript;
+
+  // Add the current transcript to the contents of our Note.
+  // There is a weird bug on mobile, where everything is repeated twice.
+  // There is no official solution so far so we have to handle an edge case.
+  var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
+
+  if(!mobileRepeatBug) {
+    noteContent += transcript;
+    noteTextarea.val(noteContent);
+		search();
+  }
+};
+
+recognition.onstart = function() {
+	console.log("recording started in script");
+  instructions.text('Voice recognition activated. Try speaking into the mic.');
+}
+
+recognition.onspeechend = function() {
+  instructions.text('Voice recognition turned itself off.');
+}
+
+recognition.onerror = function(event) {
+  if(event.error == 'no-speech') {
+    instructions.text('No speech was detected. Try again.');
+  };
+}
+
+
+
+/*-----------------------------
+      App buttons and input
+------------------------------*/
+
+$('#start-record-btn').on('click', function(e) {
+	if (noteContent.length) {
+    noteContent += ' ';
+  }
+  recognition.start();
+});
+
+
+$('#pause-record-btn').on('click', function(e) {
+  recognition.stop();
+  instructions.text('Voice recognition turned off.');
+});
+
+// Sync the text inside the text area with the noteContent variable.
+noteTextarea.on('input', function() {
+  noteContent = $(this).val();
+})
+
+$('#save-note-btn').on('click', function(e) {
+  recognition.stop();
+
+  if(!noteContent.length) {
+    instructions.text('Could not save empty note.');
+  }
+  else {
+    // Save note to localStorage.
+    // The key is the dateTime with seconds, the value is the content of the note.
+    saveNote(new Date().toLocaleString(), noteContent);
+
+    // Reset variables and update UI.
+    noteContent = '';
+    renderNotes(getAllNotes());
+    noteTextarea.val('');
+    instructions.text('Note saved successfully.');
+  }
+
+})
+
+
+notesList.on('click', function(e) {
+  e.preventDefault();
+  var target = $(e.target);
+
+  // Listen to the selected note.
+  if(target.hasClass('listen-note')) {
+    var content = target.closest('.note').find('.content').text();
+    readOutLoud(content);
+  }
+
+  // Delete note.
+  if(target.hasClass('delete-note')) {
+    var dateTime = target.siblings('.date').text();
+    deleteNote(dateTime);
+    target.closest('.note').remove();
+  }
+});
+
+
+
+/*-----------------------------
+      Speech Synthesis
+------------------------------*/
+
+function readOutLoud(message) {
+	var speech = new SpeechSynthesisUtterance();
+
+  // Set the text and voice attributes.
+	speech.text = message;
+	speech.volume = 1;
+	speech.rate = 1;
+	speech.pitch = 1;
+
+	window.speechSynthesis.speak(speech);
+}
+
+
+
+/*-----------------------------
+      Helper Functions
+------------------------------*/
+
+function renderNotes(notes) {
+  var html = '';
+  if(notes.length) {
+    notes.forEach(function(note) {
+      html+= `<li class="note">
+        <p class="header">
+          <span class="date">${note.date}</span>
+          <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
+          <a href="#" class="delete-note" title="Delete">Delete</a>
+        </p>
+        <p class="content">${note.content}</p>
+      </li>`;
+    });
+  }
+  else {
+    html = '<li><p class="content"> yet.</p></li>';
+  }
+  notesList.html(html);
+}
+
+
+function saveNote(dateTime, content) {
+  localStorage.setItem('note-' + dateTime, content);
+}
+
+
+function getAllNotes() {
+  var notes = [];
+  var key;
+  for (var i = 0; i < localStorage.length; i++) {
+    key = localStorage.key(i);
+
+    if(key.substring(0,5) == 'note-') {
+      notes.push({
+        date: key.replace('note-',''),
+        content: localStorage.getItem(localStorage.key(i))
+      });
+    }
+  }
+  return notes;
+}
+
+
+function deleteNote(dateTime) {
+  localStorage.removeItem('note-' + dateTime);
+}}
+
+
+								</script>
+							</nav>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<!-- //nav -->

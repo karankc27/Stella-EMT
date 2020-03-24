@@ -1,0 +1,50 @@
+<%-include("../include/header") %>
+<div class="contact-agile">
+  <div class="faq">
+    <h4 class="latest-text w3_latest_text">Add Movie </h4>
+    <div class="container">
+	<div class="clearfix"></div>
+<form action="/add-edevice" method="post">
+  <input type="hidden" name="quantity" value="1">
+  <select class="" name="device_type">
+    <option value="" disabled selected>Select Device</option>
+  <option value="mobile"> Mobile </option>
+  <option value="laptop">    Laptop </option>
+  <option value="television"> Television </option>
+  <option value="headphone"> Headphone </option>
+  <option value="speaker">   Speaker </option>
+  <option value="ac"> Air Conditioner </option>
+  <option value="trimmer"> Trimmer </option> <b
+  <option value="oven">  Microwave Oven </option>
+  <option value="cooler"> Water Cooler </option>
+  <option value="watch"> Wrist Watch </option>
+  <option value="fridge">  Refrigerator </option>
+  <option value="washing_machine">  Washing Machine</option>
+  <option value="camera">   camera </option>
+
+  </select> &emsp;
+
+  <input type="text" name="brand_name" placeholder="Brand Name" required=""> <br>
+  <input type="text" name="name" placeholder="Device Name" required=""> &emsp;
+  <input type="text" name="trailer" placeholder="Trailer URL" required=""> <br>
+  
+  <input type="text" name="model" placeholder="Model" > <br>
+      <input type="text" name="imageurl" placeholder="Image URL" required=""> &emsp;
+      <textarea  name="description" placeholder="Product Description" required=""></textarea> <br>
+      <input type="number" name="rating" placeholder="Rating" required=""> &emsp;
+      <input type="number" name="year" placeholder="Year" required=""> &emsp;
+      <input type="number" name="price" placeholder="Price (in Rupees)" required=""> <br>
+<br>
+
+
+
+
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <input type="submit" value="ADD Product">
+
+
+</form>
+</div>
+</div>
+</div>
+<%-include("../include/footer") %>
