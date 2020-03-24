@@ -115,7 +115,7 @@ var myQuery = Edevice.find({})
 
 const transporter=nodemailer.createTransport(sendgridTransport({
   auth:{
-    api_key: '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'
+    api_key: '<api_key>'
   }
 }));
 
