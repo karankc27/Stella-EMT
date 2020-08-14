@@ -18,7 +18,7 @@ var $ = require("jquery");
 
 const speech=require("speech-to-text");
 
-const MONGODB_URI= "mongodb+srv://<username>:<password>@demo-nwqqd.mongodb.net/test?retryWrites=true&w=majority";
+const MONGODB_URI= "mongodb+srv://karankc27:Karijitmongo@demo-nwqqd.mongodb.net/test?retryWrites=true&w=majority";
 
 const store= new MongoDBStore({
   uri: MONGODB_URI,
